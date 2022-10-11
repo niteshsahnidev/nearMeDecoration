@@ -74,8 +74,12 @@ const getDecorations = async (req,res) => {
                 res.status(200).json(anniversaryDecorations);
                 break;
             case "baby-shower":
-                const BabyShowerDecorations = await decorationCollection.find({type:"baby-shower"});
-                res.status(200).json(BabyShowerDecorations);
+                const babyShowerDecorations = await decorationCollection.find({type:"baby-shower"});
+                res.status(200).json(babyShowerDecorations);
+                break;
+            case "banquet-hall":
+                const banquetHallDecorations = await decorationCollection.find({type:"banquet-hall"});
+                res.status(200).json(banquetHallDecorations);
                 break;
             case "others":
                 const otherDecorations = await decorationCollection.find({type:"others"});
