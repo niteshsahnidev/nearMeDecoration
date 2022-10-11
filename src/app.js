@@ -19,6 +19,13 @@ app.use(fileUpload({
 app.use("/admin",adminRouter);
 app.get("/decorations/:type",getDecorations)
 app.get("/decoration/:id",getDecoration)
+app.get("*",(req,res)=>{
+    res.status(404).json({
+        status:404,
+        success:false,
+        message:"Not Found"
+    })
+})
 
 app.listen(port,()=>{
     console.log(`Server is listening at http://localhost:${port}`)

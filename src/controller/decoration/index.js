@@ -83,8 +83,14 @@ const getDecorations = async (req,res) => {
                 break;
             case "others":
                 const otherDecorations = await decorationCollection.find({type:"others"});
-                res.status(200).json(other);
+                res.status(200).json(otherDecorations);
                 break;
+            default :
+                res.status(404).json({
+                    status:404,
+                    success:false,
+                    msg: "Category Not Found"
+                });
          }
         
     } catch (err) {
