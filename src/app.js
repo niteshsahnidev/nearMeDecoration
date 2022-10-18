@@ -5,11 +5,14 @@ const fileUpload  = require("express-fileupload")
 const bodyParser = require("body-parser");
 const { getDecorations, getDecoration } = require("./controller/decoration");
 const { adminAuth } = require("./middlewares/auth");
+const cors = require("cors")
 
 const app = express()
 const port = process.env.PORT || 8081
 
-
+app.use(cors({
+    origin:'*'
+}))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.json());
 app.use(fileUpload({
