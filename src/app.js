@@ -22,6 +22,13 @@ app.use(fileUpload({
 app.use("/admin",adminRouter);
 app.get("/decorations/:type",getDecorations)
 app.get("/decoration/:id",getDecoration)
+app.get("/ping",async(req,res)=>{
+    res.status(200).json({
+        status:200,
+        success:true,
+        message:"Server is Active Right Now"
+    })
+})
 app.get("*",(req,res)=>{
     res.status(404).json({
         status:404,

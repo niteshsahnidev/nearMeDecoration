@@ -5,7 +5,7 @@ require("dotenv").config()
 
 const adminLoginController = async (req, res) => {
     try {
-        if (req.body.email || req.body.password) {
+        if (req.body.email && req.body.password) {
             const user = await userCollection.findOne({ email: req.body.email })
             const verify = await brcypt.compare(req.body.password, user.password)
             console.log(verify)
