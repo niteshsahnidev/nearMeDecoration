@@ -1,5 +1,5 @@
 const express = require("express");
-const { adminLoginController, adminChangePasswordController } = require("../../controller/admin");
+const { adminLoginController, adminChangePasswordController, tokenVerifyController } = require("../../controller/admin");
 const { saveDecoration, updateDecoration, deleteDecoration, getDecoration, getDecorations } = require("../../controller/decoration");
 const { birthday } = require("../../db/model/decoration");
 const { auth, adminAuth } = require("../../middlewares/auth");
@@ -16,6 +16,7 @@ cloudinary.config({
 const router = express.Router();
 
 router.post("/login",adminLoginController)
+router.post("verifyToken",tokenVerifyController)
 
 router.put("/change-password",adminChangePasswordController)
 
