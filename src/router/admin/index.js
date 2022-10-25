@@ -16,7 +16,7 @@ cloudinary.config({
 const router = express.Router();
 
 router.post("/login",adminLoginController)
-router.post("verifyToken",tokenVerifyController)
+router.post("/verifyToken",tokenVerifyController)
 
 router.put("/change-password",adminChangePasswordController)
 

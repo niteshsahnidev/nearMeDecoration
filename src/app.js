@@ -5,7 +5,8 @@ const fileUpload  = require("express-fileupload")
 const bodyParser = require("body-parser");
 const { getDecorations, getDecoration } = require("./controller/decoration");
 const { adminAuth } = require("./middlewares/auth");
-const cors = require("cors")
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 const app = express()
 const port = process.env.PORT || 8081
@@ -15,6 +16,7 @@ app.use(cors({
 }))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.json());
+app.use(cookieParser());
 app.use(fileUpload({
     useTempFiles:true
 }))

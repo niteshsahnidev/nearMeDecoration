@@ -4,6 +4,7 @@ require("dotenv").config();
 
 const adminAuth = async (req,res,next) => {
     try{
+        console.log("logggggggggggggggg",JSON.stringify(req.cookies));
         const token = req.headers.authorization;
         if(token){
             const userId = jwt.verify(token,process.env.JWT_SECRET_KEY).id;
