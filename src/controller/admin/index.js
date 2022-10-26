@@ -86,7 +86,7 @@ const adminChangePasswordController = async (req, res) => {
 
 const tokenVerifyController = async (req,res) => {
     try{
-        const token = req.body.authorization;
+        const token = req.body.token;
         if(token){
             const userId = jwt.verify(token,process.env.JWT_SECRET_KEY).id;
             const user = await userCollection.findById(userId);
@@ -99,17 +99,25 @@ const tokenVerifyController = async (req,res) => {
                         email: user.email,
                     }
                 )
+            } else {
+                res.status(401).json({
+                    status:401,
+                    success:false,
+                    message:"You are not an authorized user"
+                })
             }
-        }
-
+        } else {
             res.status(401).json({
                 status:401,
                 success:false,
                 message:"You are not an authorized user"
             })
+        }
+
+           
         
     } catch (err) {
-        console.log("AUTH MIDDLEWARE ERROR ====> ",err.message)
+        console.log("VERIFY TOKEN ERROR ====> ",err.message)
         res.status(401).json({
             status:401,
             success:false,

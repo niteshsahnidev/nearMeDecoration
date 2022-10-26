@@ -1,6 +1,6 @@
 const express = require("express");
 const { adminLoginController, adminChangePasswordController, tokenVerifyController } = require("../../controller/admin");
-const { saveDecoration, updateDecoration, deleteDecoration, getDecoration, getDecorations } = require("../../controller/decoration");
+const { saveDecoration, updateDecoration, deleteDecoration, getDecoration, getDecorations, decorationOverview, getAllDecorations } = require("../../controller/decoration");
 const { birthday } = require("../../db/model/decoration");
 const { auth, adminAuth } = require("../../middlewares/auth");
 const cloudinary = require("cloudinary").v2
@@ -19,10 +19,11 @@ router.post("/login",adminLoginController)
 router.post("/verifyToken",tokenVerifyController)
 
 router.put("/change-password",adminChangePasswordController)
-
+router.get("/overview",adminAuth,decorationOverview)
 router.post("/decoration",adminAuth,saveDecoration)
 router.put("/decoration",adminAuth,updateDecoration)
-router.delete("/decoration",adminAuth,deleteDecoration)
+router.delete("/decoration/:id",adminAuth,deleteDecoration)
+router.get("/decorations",adminAuth,getAllDecorations)
 
 router.post("/uploadImage",adminAuth,async(req,res)=>{
     try{

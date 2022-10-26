@@ -105,14 +105,64 @@ const getDecorations = async (req,res) => {
 
 const deleteDecoration = async (req,res) => {
     try{
-        const idList = req.body.idList;
-        idList.forEach(async (element) => {
-            await decorationCollection.findByIdAndDelete(element);
-        });
+        const id = req.params.id;
+        // idList.forEach(async (element) => {
+        const deleted = await decorationCollection.findByIdAndDelete(id);
+        // });
         res.status(200).json({
             status:200,
             success:true,
             message:"Decoration Deleted Successfully"
+        })
+    } catch (err) {
+        console.log("Decoration Delete Error ====> ",err.message)
+        res.status(400).json({
+            status:400,
+            success:false,
+            message:"Somthing Went Wrong"
+        })
+    }
+}
+
+
+const getAllDecorations = async (req,res) => {
+    try{
+        const allDecoration = await decorationCollection.find();
+        res.status(200).json({
+            status:200,
+            success:true,
+            data: allDecoration
+        })
+        
+    } catch (err) {
+        console.log("GET All Decorations Error ====> ",err)
+        res.status(400).json({
+            status:400,
+            success:false,
+            message:"Somthing Went Wrong"
+        })
+    }
+}
+
+
+const decorationOverview = async (req,res) => {
+    try{
+        const birthdayDecorations = await decorationCollection.find({type:"birthday"});
+        const anniversaryDecorations = await decorationCollection.find({type:"anniversary"});
+        const babyShowerDecorations = await decorationCollection.find({type:"baby-shower"});
+        const banquetHallDecorations = await decorationCollection.find({type:"banquet-hall"});
+        const otherDecorations = await decorationCollection.find({type:"others"});
+
+        res.status(200).json({
+            status:200,
+            success:true,
+            data:{
+                birthday:birthdayDecorations.length,
+                anniversary: anniversaryDecorations.length,
+                babyShower: babyShowerDecorations.length,
+                banquetHall: banquetHallDecorations.length,
+                others: otherDecorations.length
+            }
         })
     } catch (err) {
         res.status(400).json({
@@ -125,5 +175,5 @@ const deleteDecoration = async (req,res) => {
 
 
 module.exports = {
-    getDecoration,getDecorations,saveDecoration,updateDecoration,deleteDecoration
+    getDecoration,getDecorations,saveDecoration,updateDecoration,deleteDecoration, decorationOverview, getAllDecorations
 }
