@@ -5,7 +5,7 @@ require("dotenv").config()
 
 try{
     console.log("DB URL ====> ",process.env.MONGODB_URL)
-    mongoose.connect(process.env.MONGODB_URL);
+    // mongoose.connect(process.env.MONGODB_URL);
 } catch (err) {
     console.log("Database connection Error ====> ",err)
 }
