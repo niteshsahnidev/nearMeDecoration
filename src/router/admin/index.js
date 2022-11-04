@@ -27,7 +27,7 @@ router.get("/decorations",adminAuth,getAllDecorations)
 
 router.post("/uploadImage",adminAuth,async(req,res)=>{
     try{
-        console.log(req.files.image.tempFilePath,process.env.CLOUDINARY_API_KEY,process.env.CLOUDINARY_CLOUD_NAME,process.env.CLOUDINARY_API_SECRET)
+        console.log(req.files.image.tempFilePath,'h-0-vzTmCTqekkUYxq_huWyIgGA','db8j2iqgc','h-0-vzTmCTqekkUYxq_huWyIgGA')
         await cloudinary.uploader.upload(req.files.image.tempFilePath,{},(err,result)=>{
             console.log("Image Upload Error ===> ",err)
             if(!err){

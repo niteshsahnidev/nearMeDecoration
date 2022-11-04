@@ -4,8 +4,7 @@ require("dotenv").config()
 
 
 try {
-    mongoose.connect(process.env.MONGODB_URL);
-
+    mongoose.connect("mongodb+srv://sakshi_events:WhlepNaD7kXlVYD3@cluster0.0ztqiyo.mongodb.net/sakshi_events?retryWrites=true&w=majority");
 } catch (err) {
     console.log("Database connection Error ====> ", err)
 }
