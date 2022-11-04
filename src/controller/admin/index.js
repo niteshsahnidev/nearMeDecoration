@@ -1,7 +1,7 @@
 const userCollection = require("../../db/model/user");
 const brcypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
-require("dotenv").config()
+// require("dotenv").config()
 
 const adminLoginController = async (req, res) => {
     try {
