@@ -1,6 +1,7 @@
 const express = require("express");
 const { adminLoginController, adminChangePasswordController, tokenVerifyController } = require("../../controller/admin");
 const { saveDecoration, updateDecoration, deleteDecoration, getDecoration, getDecorations, decorationOverview, getAllDecorations } = require("../../controller/decoration");
+const { deletedReview } = require("../../controller/review");
 const { birthday } = require("../../db/model/decoration");
 const { auth, adminAuth } = require("../../middlewares/auth");
 const cloudinary = require("cloudinary").v2
@@ -24,6 +25,7 @@ router.post("/decoration",adminAuth,saveDecoration)
 router.put("/decoration",adminAuth,updateDecoration)
 router.delete("/decoration/:id",adminAuth,deleteDecoration)
 router.get("/decorations",adminAuth,getAllDecorations)
+router.delete("/delete-review/:id",adminAuth,deletedReview);
 
 router.post("/uploadImage",adminAuth,async(req,res)=>{
     try{
@@ -42,7 +44,7 @@ router.post("/uploadImage",adminAuth,async(req,res)=>{
                 res.status(500).json({
                     status:500,
                     success:false,
-                    message:"Somthing went wrong in uploading image"
+                    message:"Something went wrong in uploading image"
                 })
             }
         })
@@ -51,7 +53,7 @@ router.post("/uploadImage",adminAuth,async(req,res)=>{
         res.status(500).json({
             status:500,
             success:false,
-            message:"Somthing went wrong in uploading image"
+            message:"Something went wrong in uploading image"
         })
     }
 })

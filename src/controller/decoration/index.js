@@ -1,4 +1,3 @@
-const _ = require("lodash")
 const decorationCollection = require("../../db/model/decoration")
 
 const saveDecoration = async (req,res) => {
@@ -24,7 +23,7 @@ const saveDecoration = async (req,res) => {
         res.status(400).json({
             status:400,
             success:false,
-            message:"Somthing Went Wrong"
+            message:"Something Went Wrong"
         })
     }
 }
@@ -42,7 +41,7 @@ const updateDecoration = async (req,res) => {
         res.status(400).json({
             status:400,
             success:false,
-            message:"Somthing Went Wrong"
+            message:"Something Went Wrong"
         })
     }
 }
@@ -56,7 +55,7 @@ const getDecoration = async (req,res) => {
         res.status(400).json({
             status:400,
             success:false,
-            message:"Somthing Went Wrong"
+            message:"Something Went Wrong"
         })
     }
 }
@@ -98,7 +97,7 @@ const getDecorations = async (req,res) => {
         res.status(400).json({
             status:400,
             success:false,
-            message:"Somthing Went Wrong"
+            message:"Something Went Wrong"
         })
     }
 }
@@ -119,7 +118,7 @@ const deleteDecoration = async (req,res) => {
         res.status(400).json({
             status:400,
             success:false,
-            message:"Somthing Went Wrong"
+            message:"Something Went Wrong"
         })
     }
 }
@@ -139,7 +138,7 @@ const getAllDecorations = async (req,res) => {
         res.status(400).json({
             status:400,
             success:false,
-            message:"Somthing Went Wrong"
+            message:"Something Went Wrong"
         })
     }
 }
@@ -168,7 +167,7 @@ const decorationOverview = async (req,res) => {
         res.status(400).json({
             status:400,
             success:false,
-            message:"Somthing Went Wrong"
+            message:"Something Went Wrong"
         })
     }
 }

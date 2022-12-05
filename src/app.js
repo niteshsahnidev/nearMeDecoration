@@ -7,6 +7,7 @@ const { getDecorations, getDecoration } = require("./controller/decoration");
 const { adminAuth } = require("./middlewares/auth");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+const { getReviews, deletedReview, getAllReviews, createReview } = require("./controller/review");
 
 const app = express()
 const port = process.env.PORT || 8081
@@ -24,6 +25,12 @@ app.use(fileUpload({
 app.use("/admin",adminRouter);
 app.get("/decorations/:type",getDecorations)
 app.get("/decoration/:id",getDecoration)
+app.get("/reviews/:id",getReviews);
+app.get("/reviews-to-display",adminAuth,getAllReviews);
+app.post("/create-review",createReview)
+app.get("/delete-review",adminAuth,deletedReview)
+
+
 app.get("/ping",async(req,res)=>{
     res.status(200).json({
         status:200,
