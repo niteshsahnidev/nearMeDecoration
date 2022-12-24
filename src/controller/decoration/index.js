@@ -66,23 +66,23 @@ const getDecorations = async (req,res) => {
          switch(type){
             case "birthday-decorations":
                 const birthdayDecorations = await decorationCollection.find({type:"birthday"});
-                res.status(200).json(birthdayDecorations);
+                res.status(200).json(birthdayDecorations.reverse());
                 break;
             case "anniversary-decorations":
                 const anniversaryDecorations = await decorationCollection.find({type:"anniversary"});
-                res.status(200).json(anniversaryDecorations);
+                res.status(200).json(anniversaryDecorations.reverse());
                 break;
             case "baby-shower":
                 const babyShowerDecorations = await decorationCollection.find({type:"baby-shower"});
-                res.status(200).json(babyShowerDecorations);
+                res.status(200).json(babyShowerDecorations.reverse());
                 break;
             case "banquet-hall":
                 const banquetHallDecorations = await decorationCollection.find({type:"banquet-hall"});
-                res.status(200).json(banquetHallDecorations);
+                res.status(200).json(banquetHallDecorations.reverse());
                 break;
             case "others":
                 const otherDecorations = await decorationCollection.find({type:"others"});
-                res.status(200).json(otherDecorations);
+                res.status(200).json(otherDecorations.reverse());
                 break;
             default :
                 res.status(404).json({
