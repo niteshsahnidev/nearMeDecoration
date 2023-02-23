@@ -8,6 +8,7 @@ const { adminAuth } = require("./middlewares/auth");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const { getReviews, deletedReview, getAllReviews, createReview } = require("./controller/review");
+const { createUserController } = require("./controller/admin");
 
 const app = express()
 const port = process.env.PORT || 8081
@@ -23,6 +24,7 @@ app.use(fileUpload({
 }))
 
 app.use("/admin",adminRouter);
+// app.post("/create-user",createUserController)
 app.get("/decorations/:type",getDecorations)
 app.get("/decoration/:id",getDecoration)
 app.get("/reviews/:id",getReviews);

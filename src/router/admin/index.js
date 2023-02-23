@@ -18,7 +18,6 @@ const router = express.Router();
 
 router.post("/login",adminLoginController)
 router.post("/verifyToken",tokenVerifyController)
-
 router.put("/change-password",adminChangePasswordController)
 router.get("/overview",adminAuth,decorationOverview)
 router.post("/decoration",adminAuth,saveDecoration)
@@ -29,7 +28,7 @@ router.delete("/delete-review/:id",adminAuth,deletedReview);
 
 router.post("/uploadImage",adminAuth,async(req,res)=>{
     try{
-        console.log(req.files.image.tempFilePath,'h-0-vzTmCTqekkUYxq_huWyIgGA','db8j2iqgc','h-0-vzTmCTqekkUYxq_huWyIgGA')
+        // console.log(req.files.image.tempFilePath,'h-0-vzTmCTqekkUYxq_huWyIgGA','db8j2iqgc','h-0-vzTmCTqekkUYxq_huWyIgGA')
         await cloudinary.uploader.upload(req.files.image.tempFilePath,{},(err,result)=>{
             console.log("Image Upload Error ===> ",err)
             if(!err){

@@ -1,7 +1,58 @@
 const userCollection = require("../../db/model/user");
 const brcypt = require("bcrypt")
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
+const { default: mongoose } = require("mongoose");
 require("dotenv").config()
+
+
+
+const createUserController = async (req, res) => {
+    try{
+        const data = req.body;
+        if(data.email && data.name && data.password && data.role){
+            const userExists = await userCollection.findOne({ email: data.email });
+            if(!userExists){
+                const hashedPassword = await brcypt.hash(data.password, 10)
+                const user = new userCollection({
+                    name: data.name,
+                    email: data.email,
+                    password: hashedPassword,
+                    role: data.role,
+                    _id: mongoose.Types.ObjectId()
+                })
+
+                const savedUser = await user.save();
+
+                res.status(200).json({
+                    status: 200,
+                    success: true,
+                    message: "User Created Successfully *",
+                    data: savedUser
+                })
+            } else {
+                res.status(409).json({
+                    status: 409,
+                    success: false,
+                    message: "User Already Exists *"
+                })
+            }
+        } else {
+            res.status(409).json({
+                status: 409,
+                success: false,
+                message: "All fields are required *"
+            })
+        }
+    } catch (err) {
+        console.log("Create User ERROR ====> ",err)
+        res.status(400).json({
+            status: 400,
+            success: false,
+            message: "Something Went Wrong *"
+        })
+    }
+}
+
 
 const adminLoginController = async (req, res) => {
     try {
@@ -128,4 +179,4 @@ const tokenVerifyController = async (req,res) => {
 
 
 
-module.exports = {adminChangePasswordController,adminLoginController,tokenVerifyController}
+module.exports = {adminChangePasswordController,adminLoginController,tokenVerifyController,createUserController}
