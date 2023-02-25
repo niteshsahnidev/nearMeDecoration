@@ -76,27 +76,27 @@ const getDecorations = async (req, res) => {
                 const anniversaryDecorations = await decorationCollection.find({ type: "anniversary" });
                 res.status(200).json(anniversaryDecorations.reverse());
                 break;
-            case "baby-shower":
+            case "baby-shower-decorations":
                 const babyShowerDecorations = await decorationCollection.find({ type: "baby-shower" });
                 res.status(200).json(babyShowerDecorations.reverse());
                 break;
-            case "wedding":
+            case "wedding-decorations":
                 const weddingDecorations = await decorationCollection.find({ type: "wedding" });
                 res.status(200).json(weddingDecorations.reverse());
                 break;
-            case "new-year":
+            case "new-year-decorations":
                 const newYearDecorations = await decorationCollection.find({ type: "new-year" });
                 res.status(200).json(newYearDecorations.reverse());
                 break;
-            case "valentine":
+            case "valentine-decorations":
                 const valentineDecorations = await decorationCollection.find({ type: "valentine" });
                 res.status(200).json(valentineDecorations.reverse());
                 break;
-            case "purposal":
+            case "purposal-decorations":
                 const purposalDecorations = await decorationCollection.find({ type: "purposal" });
                 res.status(200).json(purposalDecorations.reverse());
                 break;
-            case "others":
+            case "others-decorations":
                 const otherDecorations = await decorationCollection.find({ type: "others" });
                 res.status(200).json(otherDecorations.reverse());
                 break;
