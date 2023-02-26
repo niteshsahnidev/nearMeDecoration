@@ -96,7 +96,11 @@ const getDecorations = async (req, res) => {
                 const purposalDecorations = await decorationCollection.find({ type: "purposal" });
                 res.status(200).json(purposalDecorations.reverse());
                 break;
-            case "others-decorations":
+            case "party-decorations":
+                const partyDecorations = await decorationCollection.find({ type: "party" });
+                res.status(200).json(purposalDecorations.reverse());
+                break;
+            case "other-decorations":
                 const otherDecorations = await decorationCollection.find({ type: "others" });
                 res.status(200).json(otherDecorations.reverse());
                 break;

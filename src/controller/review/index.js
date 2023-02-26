@@ -19,8 +19,8 @@ require("dotenv").config()
 var transporter = nodemailer.createTransport({
     service:"gmail",
     auth: {
-      user: 'mtest8969@gmail.com',
-      pass: 'aznmqnejgqhjrhvf'
+      user: 'ask.event07@gmail.com',
+      pass: 'nompwjsbzkjtdvme'
     }
   });
 
