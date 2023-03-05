@@ -100,6 +100,34 @@ const getDecorations = async (req, res) => {
                 const partyDecorations = await decorationCollection.find({ type: "party" });
                 res.status(200).json(purposalDecorations.reverse());
                 break;
+            case "haldi-decorations":
+                const haldiDecorations = await decorationCollection.find({ type: "haldi" });
+                res.status(200).json(haldiDecorations.reverse());
+                break;
+            case "mehndi-decorations":
+                const mehndiDecorations = await decorationCollection.find({ type: "mehndi" });
+                res.status(200).json(mehndiDecorations.reverse());
+                break;
+            case "live-cartoon-character":
+                const liveCartoonCharacter = await decorationCollection.find({ type: "live-cartoon-character" });
+                res.status(200).json(liveCartoonCharacter.reverse());
+                break;
+            case "photo-video-shoot":
+                const photoVideoShoot = await decorationCollection.find({ type: "photo-video-shoot" });
+                res.status(200).json(photoVideoShoot.reverse());
+                break;
+            case "catering-decorations":
+                const cateringDecorations = await decorationCollection.find({ type: "purposal" });
+                res.status(200).json(cateringDecorations.reverse());
+                break;
+            case "game-corridor":
+                const gameCorridor = await decorationCollection.find({ type: "game-corridor" });
+                res.status(200).json(gameCorridor.reverse());
+                break;
+            case "music-system":
+                const musicSystem = await decorationCollection.find({ type: "music-system" });
+                res.status(200).json(musicSystem.reverse());
+                break;
             case "other-decorations":
                 const otherDecorations = await decorationCollection.find({ type: "others" });
                 res.status(200).json(otherDecorations.reverse());
