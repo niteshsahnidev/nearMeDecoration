@@ -116,7 +116,7 @@ const getDecorations = async (req, res) => {
                 const photoVideoShoot = await decorationCollection.find({ type: "photo-video-shoot" });
                 res.status(200).json(photoVideoShoot.reverse());
                 break;
-            case "catering-decorations":
+            case "catering-services":
                 const cateringDecorations = await decorationCollection.find({ type: "purposal" });
                 res.status(200).json(cateringDecorations.reverse());
                 break;
