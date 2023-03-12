@@ -117,7 +117,7 @@ const getDecorations = async (req, res) => {
                 res.status(200).json(photoVideoShoot.reverse());
                 break;
             case "catering-services":
-                const cateringDecorations = await decorationCollection.find({ type: "purposal" });
+                const cateringDecorations = await decorationCollection.find({ type: "catering" });
                 res.status(200).json(cateringDecorations.reverse());
                 break;
             case "game-corridor":
