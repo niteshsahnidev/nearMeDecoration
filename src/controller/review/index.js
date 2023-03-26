@@ -92,7 +92,7 @@ const createReview = async (req, res) => {
             });
 
             let mailSentToReviewer = await transporter.sendMail({
-                from: '"Sakshi Events"mtest8969@gmail.com', // sender address
+                from: '"Event07 "ask.event07@gmail.com', // sender address
                 to: req.body.email, // list of receivers
                 subject: "Thank you, 🙏", // Subject line
                 // text: "Thank you, 🙏 for your valuable feedback", // plain text body
@@ -103,8 +103,8 @@ const createReview = async (req, res) => {
             
             const token = jwt.sign({id:user[0]._id},process.env.JWT_SECRET_KEY)
             let mailSentToAdmin = await transporter.sendMail({
-                from: '"Sakshi Events, Review"mtest8969@gmail.com', // sender address
-                to: "sahninitesh01@gmail.com,sakshievents22@gmail.com,sakshievents95@gmail.com", // list of receivers
+                from: '"Event07, Review"ask.event07@gmail.com', // sender address
+                to: "sahninitesh01@gmail.com,ask.event07@gmail.com", // list of receivers
                 subject: "🔴 You got a review from a customer", // Subject line
                 // text: "🔴 You got a review from a customer", // plain text body
                 html: `<b>Namaste Admin 🙏,</b>
@@ -116,7 +116,7 @@ const createReview = async (req, res) => {
                 <p>Rating: ${req.body.rating}</p>
                 <p>Review: ${req.body.review}</p>
                 <br/>
-                <a href="http://localhost:8081/delete-review?id=${saved._id}&authToken=${token}">Click here if you want to delete the review</a>
+                <a href="https://tan-jolly-gharial.cyclic.app/delete-review?id=${saved._id}&authToken=${token}">Click here if you want to delete the review</a>
                 `, // html body
             });
 
