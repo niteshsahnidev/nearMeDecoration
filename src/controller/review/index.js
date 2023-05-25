@@ -118,7 +118,7 @@ const createReview = async (req, res) => {
                 <br/>
                 <a href="https://tan-jolly-gharial.cyclic.app/delete-review?id=${saved._id}&authToken=${token}">Click here if you want to delete the review</a>
                 `, // html body
-            });
+            })
 
             console.log("Message Sent Successfully");
 
