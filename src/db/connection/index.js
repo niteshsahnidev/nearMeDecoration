@@ -4,7 +4,7 @@ require("dotenv").config()
 
 
 try {
-    mongoose.connect("mongodb+srv://nearmeballoondecoration:<hMcZf0jlpU52lUUK>@cluster0.6pghaun.mongodb.net/?retryWrites=true&w=majority");
+    mongoose.connect("mongodb+srv://nearmeballoondecoration:hMcZf0jlpU52lUUK@cluster0.6pghaun.mongodb.net/nearmedecoration?retryWrites=true&w=majority");
 } catch (err) {
     console.log("Database connection Error ====> ", err)
 }
