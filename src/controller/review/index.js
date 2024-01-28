@@ -19,7 +19,7 @@ require("dotenv").config()
 var transporter = nodemailer.createTransport({
     service:"gmail",
     auth: {
-      user: 'ask.event07@gmail.com',
+      user: 'ask.nearmedecoration@gmail.com',
       pass: 'louwifypmorzhnxw'
     }
   });
@@ -92,7 +92,7 @@ const createReview = async (req, res) => {
             });
 
             let mailSentToReviewer = await transporter.sendMail({
-                from: '"Event07 "ask.event07@gmail.com', // sender address
+                from: '"NearMe Decoration "ask.nearmedecoration@gmail.com', // sender address
                 to: req.body.email, // list of receivers
                 subject: "Thank you, 🙏", // Subject line
                 // text: "Thank you, 🙏 for your valuable feedback", // plain text body
@@ -103,8 +103,8 @@ const createReview = async (req, res) => {
             
             const token = jwt.sign({id:user[0]._id},process.env.JWT_SECRET_KEY)
             let mailSentToAdmin = await transporter.sendMail({
-                from: '"Event07, Review"ask.event07@gmail.com', // sender address
-                to: "sahninitesh01@gmail.com,ask.event07@gmail.com", // list of receivers
+                from: '"NearMe Decoration, Review"ask.nearmedecoration@gmail.com', // sender address
+                to: "sahninitesh01@gmail.com,ask.nearmedecoration@gmail.com", // list of receivers
                 subject: "🔴 You got a review from a customer", // Subject line
                 // text: "🔴 You got a review from a customer", // plain text body
                 html: `<b>Namaste Admin 🙏,</b>
